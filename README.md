@@ -13,6 +13,6 @@ PB3 with a thermal switch (KSD301, 50°C, NO) works as a triac overheat protecti
 
 ![Overview](overview.jpg)
 
-As a water heater I use Electrolux Smartfix 3.5 (16A, 3.5 kW), but any other with the same current consumption (max. ~20A) is quite appropriate. All high current connections, including relay and triac terminals A1 (MT1), A2 (MT2) connections are made with thick wire (approx. 2.5mm dia). Cheapest AC-DC led driver (SMPS) I’ve used as a power supply for the control module.
+As a water heater I use Electrolux Smartfix 3.5 (16A, 3.5 kW), but any other with the same current consumption (max. ~20A) is quite appropriate. All high current connections, including relay and triac terminals A1 (MT1), A2 (MT2) connections are made with thick wire (approx. 2.5mm dia). Cheapest AC-DC led driver (SMPS) used as a power supply for the control module.
 
 Microcontroller firmware flashed using an HVSP programmer to turn on the RSTDISBL fuse. The CPU is clocked from an internal oscillator which runs at 128 kHz. RGB led (common cathode) shows the operating mode of the power module. In standby mode (when the water tap is turned off) blue led flashes once per 15 seconds. When someone is turning the water tap, MC switches the triac on and the red led goes high in parallel with a buzzer (which has an internal 1kHz oscillator). After 100-150 ms MC switches power relays and green led on and simultaneously switches triac, red led and buzzer off. Green led indicates a normal operating mode.
