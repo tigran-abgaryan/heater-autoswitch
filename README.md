@@ -16,3 +16,42 @@ PB3 with a thermal switch (KSD301, 50°C, NO) works as a triac overheat protecti
 As a water heater I use Electrolux Smartfix 3.5 (16A, 3.5 kW), but any other with the same current consumption (max. ~20A) is quite appropriate. All high current connections, including relay and triac terminals A1 (MT1), A2 (MT2) connections are made with thick wire (approx. 2.5mm dia). Cheapest AC-DC led driver (SMPS) used as a power supply for the control module.
 
 Microcontroller firmware flashed using an HVSP programmer to turn on the RSTDISBL fuse. The CPU is clocked from an internal oscillator which runs at 128 kHz. RGB led (common cathode) shows the operating mode of the power module. In standby mode (when the water tap is turned off) blue led flashes once per 15 seconds. When someone is turning the water tap, MC switches the triac on and the red led goes high in parallel with a buzzer (which has an internal 1kHz oscillator). After 100-150 ms MC switches power relays and green led on and simultaneously switches triac, red led and buzzer off. Green led indicates a normal operating mode.
+
+**Parts list**
+R1  10k (0.25/0.125W)\
+R2  330 (0.25/0.125W)\
+R3  2k  (0.25/0.125W)\
+R4  10k (0.25/0.125W)\
+R5  270 (0.25/0.125W)\
+R6  3k  (0.25/0.125W)\
+R7  3k  (0.25/0.125W)\
+R8  3k  (0.25/0.125W)\
+R9  390 (0.5/1W)\
+R10 330 (0.5/1W)\
+R11 39  (2W)\
+R12 2k  (0.25/0.125W)\
+R13 2k  (0.25/0.125W)\
+
+
+C1  470ufx25V\
+C2  100ufx16V\
+C3  0.1uf (50V, film/ceramic)\
+C4  220ufx10V\
+C5  0.1uf (50V,film/ceramic)\
+C6  0.1uf (50V,film/ceramic)\
+C7  0.01uf (630V, film)\
+
+VD1 1N4007\
+VD2 1N4007\
+VT1 S8050 (2N2222, BC337)\
+VT2 S8050 (2N2222, BC337)\
+VT3 S8050 (2N2222, BC337)\
+VU1 MOC3022 (TLP3022)\
+DA1 LM7812\
+DA2 LM78L05\
+DD1 ATtiny13(A)\
+
+K1 30A (JQX-30F)\
+K2 30A (JQX-30F)\
+K3 KSD301 (50°C, normally open)\
+K4 PS-02C or a similar (normally open)\
